@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop Bio Link</title>
+  <style>
+    /* ===== RESET & BASE STYLES ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Prompt', sans-serif;
+      background: linear-gradient(135deg, #43cea2 0%, #185a9d 100%);
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+      min-height: 100vh;
+    }
+    
+    /* ===== CONTAINER ===== */
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      background-color: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* ===== HEADER ===== */
+    .header {
+      text-align: center;
+      padding: 30px 20px;
+      background-color: #f8f9fa;
+      position: relative;
+    }
+    
+    .logo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .shop-name {
+      font-size: 24px;
+      font-weight: 700;
+      margin-top: 15px;
+      color: #2e7d32;
+    }
+    
+    .shop-description {
+      font-size: 16px;
+      color: #666;
+      margin-top: 5px;
+      padding: 0 20px;
+    }
+    
+    .promo-badge {
+      position: absolute;
+      background-color: #f44336;
+      color: white;
+      font-size: 12px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      top: 30px;
+      right: 30px;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    /* ===== FEATURED PRODUCTS ===== */
+    .featured-products {
+      padding: 20px;
+      background-color: #f1f8e9;
+    }
+    
+    .section-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: #2e7d32;
+      display: flex;
+      align-items: center;
+    }
+    
+    .section-title i {
+      margin-right: 10px;
+    }
+    
+    .products {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
+    
+    .product {
+      min-width: 120px;
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    }
+    
+    .product-img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+    }
+    
+    .product-info {
+      padding: 10px;
+    }
+    
+    .product-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: #333;
+    }
+    
+    .product-price {
+      font-size: 14px;
+      color: #f44336;
+      font-weight: 600;
+    }
+    
+    /* ===== LINKS ===== */
+    .links {
+      padding: 20px;
+    }
+    
+    .link-item {
+      background-color: white;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+      display: flex;
+      align-items: center;
+      border: 1px solid #e0e0e0;
+    }
+    
+    .link-item:hover {
+      transform: translateY(-3px);
+    }
+    
+    .link-icon {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #2e7d32;
+      color: white;
+      font-size: 20px;
+    }
+    
+    .link-content {
+      padding: 15px;
+      flex-grow: 1;
+    }
+    
+    .link-title {
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 3px;
+    }
+    
+    .link-description {
+      font-size: 14px;
+      color: #666;
+    }
+    
+    /* ===== FOOTER ===== */
+    .footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #666;
+      background-color: #f8f9fa;
+    }
+    
+    .footer a {
+      color: #2e7d32;
+      text-decoration: none;
+    }
+    
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .container {
+      animation: fadeIn 0.8s ease forwards;
+    }
+    
+    .link-item {
+      opacity: 0;
+      animation: fadeIn 0.5s ease forwards;
+    }
+    
+    .link-item:nth-child(1) { animation-delay: 0.2s; }
+    .link-item:nth-child(2) { animation-delay: 0.3s; }
+    .link-item:nth-child(3) { animation-delay: 0.4s; }
+    .link-item:nth-child(4) { animation-delay: 0.5s; }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <span class="promo-badge">ลด 20%</span>
+      <img src="https://via.placeholder.com/150/2e7d32/FFFFFF?text=SHOP" alt="Shop Logo" class="logo">
+      <h1 class="shop-name">ร้านค้าออนไลน์</h1>
+      <p class="shop-description">จำหน่ายสินค้าคุณภาพดี ราคาเป็นมิตร</p>
+    </div>
+    
+    <div class="featured-products">
+      <h2 class="section-title"><i class="fas fa-star"></i> สินค้าแนะนำ</h2>
+      <div class="products">
+        <div class="product">
+          <img src="https://via.placeholder.com/150/ccffcc/333333?text=Product1" alt="Product 1" class="product-img">
+          <div class="product-info">
+            <div class="product-name">สินค้า A</div>
+            <div class="product-price">฿590</div>
+          </div>
+        </div>
+        <div class="product">
+          <img src="https://via.placeholder.com/150/ccffcc/333333?text=Product2" alt="Product 2" class="product-img">
+          <div class="product-info">
+            <div class="product-name">สินค้า B</div>
+            <div class="product-price">฿790</div>
+          </div>
+        </div>
+        <div class="product">
+          <img src="https://via.placeholder.com/150/ccffcc/333333?text=Product3" alt="Product 3" class="product-img">
+          <div class="product-info">
+            <div class="product-name">สินค้า C</div>
+            <div class="product-price">฿490</div>
+          </div>
+        </div>
+        <div class="product">
+          <img src="https://via.placeholder.com/150/ccffcc/333333?text=Product4" alt="Product 4" class="product-img">
+          <div class="product-info">
+            <div class="product-name">สินค้า D</div>
+            <div class="product-price">฿990</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="links">
+      <a href="#" class="link-item">
+        <div class="link-icon">
+          <i class="fas fa-shopping-cart"></i>
+        </div>
+        <div class="link-content">
+          <div class="link-title">ร้านค้าออนไลน์</div>
+          <div class="link-description">เลือกซื้อสินค้าทั้งหมดได้ที่นี่</div>
+        </div>
+      </a>
+      
+      <a href="#" class="link-item">
+        <div class="link-icon">
+          <i class="fas fa-percent"></i>
+        </div>
+        <div class="link-content">
+          <div class="link-title">โปรโมชั่นประจำเดือน</div>
+          <div class="link-description">ลดสูงสุด 50% เฉพาะเดือนนี้เท่านั้น</div>
+        </div>
+      </a>
+      
+      <a href="#" class="link-item">
+        <div class="link-icon">
+          <i class="fab fa-line"></i>
+        </div>
+        <div class="link-content">
+          <div class="link-title">Line Official</div>
+          <div class="link-description">ติดต่อสอบถาม / สั่งซื้อผ่าน Line</div>
+        </div>
+      </a>
+      
+      <a href="#" class="link-item">
+        <div class="link-icon">
+          <i class="fas fa-truck"></i>
+        </div>
+        <div class="link-content">
+          <div class="link-title">ตรวจสอบการจัดส่ง</div>
+          <div class="link-description">ตรวจสอบสถานะพัสดุของคุณ</div>
+        </div>
+      </a>
+    </div>
+    
+    <div class="footer">
+      <p>Made with ❤️ by <a href="#">MeeMeaw</a></p>
+    </div>
+  </div>
+</body>
+</html>
